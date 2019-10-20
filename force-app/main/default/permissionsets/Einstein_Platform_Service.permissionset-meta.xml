@@ -8,6 +8,10 @@
         <apexClass>EPS_HttpClient</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>EPS_HttpRequestDto</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <description>Einstein Platform Service</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Einstein Platform Service</label>

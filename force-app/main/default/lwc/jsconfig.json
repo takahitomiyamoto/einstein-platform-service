@@ -12,8 +12,8 @@
             "c/eps_response": [
                 "eps_response/eps_response.js"
             ],
-            "c/pubsub2": [
-                "pubsub2/pubsub2.js"
+            "c/eps_pubsub": [
+                "eps_pubsub/eps_pubsub.js"
             ]
         }
     }

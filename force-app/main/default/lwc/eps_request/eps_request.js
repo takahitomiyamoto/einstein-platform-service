@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import {LightningElement, api, track, wire} from 'lwc';
 import {CurrentPageReference} from 'lightning/navigation';
-import {fireEvent} from 'c/pubsub2';
+import {fireEvent} from 'c/eps_pubsub';
 
 export default class EPS_Request extends LightningElement {
   httpMethod = {

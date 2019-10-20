@@ -3,7 +3,7 @@ import {LightningElement, api, track, wire} from 'lwc';
 import {CurrentPageReference} from 'lightning/navigation';
 import {loadStyle} from 'lightning/platformResourceLoader';
 import eps_responseStyle from '@salesforce/resourceUrl/eps_responseStyle';
-import {registerListener, unregisterAllListeners} from 'c/pubsub2';
+import {registerListener, unregisterAllListeners} from 'c/eps_pubsub';
 import sendHttpRequest from '@salesforce/apex/EPS_HttpClient.sendHttpRequest';
 
 export default class HelloWorld3 extends LightningElement {
