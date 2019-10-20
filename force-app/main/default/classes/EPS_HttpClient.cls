@@ -5,7 +5,10 @@ public with sharing class EPS_HttpClient {
 
     try {
       String httpResponse = '{}';
-      Object obj = System.JSON.deserialize(httpRequest, EPS_HttpRequestDto.HttpRequest.class);
+      Object obj = System.JSON.deserialize(
+        httpRequest,
+        EPS_HttpRequestDto.HttpRequest.class
+      );
       EPS_HttpRequestDto.HttpRequest httpRequestObj = (EPS_HttpRequestDto.HttpRequest) obj;
       System.debug(LoggingLevel.DEBUG, 'httpRequest: ' + httpRequestObj);
 
@@ -32,33 +35,33 @@ public with sharing class EPS_HttpClient {
       throw new AuraHandledException(e.getMessage());
     }
 
-  //   HttpRequest request = new HttpRequest();
-  //   request.setHeader('Authorization', 'Bearer ' + predictionService.getBearerToken());
-  //   request.setHeader('Cache-Control', 'no-cache');
-  //   request.setTimeout(30000);
+    //   HttpRequest request = new HttpRequest();
+    //   request.setHeader('Authorization', 'Bearer ' + predictionService.getBearerToken());
+    //   request.setHeader('Cache-Control', 'no-cache');
+    //   request.setTimeout(30000);
 
-  //   request.setMethod('GET');
+    //   request.setMethod('GET');
 
-  //    if (isDelete()) {
-  //        request.setMethod('DELETE');
-  //    } else if (isPost() || isPut()) {
-  //        request.setHeader('Content-Type', Einstein_HttpBodyPart.GetContentType());
-  //        request.setBodyAsblob(body);
-  //        if (isPut()) {
-  //            request.setMethod('PUT');
-  //        } else {
-  //            request.setMethod('POST');
-  //        }
-  //    }
+    //    if (isDelete()) {
+    //        request.setMethod('DELETE');
+    //    } else if (isPost() || isPut()) {
+    //        request.setHeader('Content-Type', Einstein_HttpBodyPart.GetContentType());
+    //        request.setBodyAsblob(body);
+    //        if (isPut()) {
+    //            request.setMethod('PUT');
+    //        } else {
+    //            request.setMethod('POST');
+    //        }
+    //    }
 
-  //    request.setEndpoint(url);
+    //    request.setEndpoint(url);
 
-  //     Http http = new Http();
-  //     HTTPResponse response = http.send(request);
+    //     Http http = new Http();
+    //     HTTPResponse response = http.send(request);
 
-  //    predictionService.isExecuting(true);
+    //    predictionService.isExecuting(true);
 
-  //    updateResponseValues(response);
-  // }
+    //    updateResponseValues(response);
+    // }
   }
 }
