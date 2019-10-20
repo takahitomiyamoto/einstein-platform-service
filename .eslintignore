@@ -1,0 +1,9 @@
+**/aura/**/*.cmp
+**/aura/**/*.css
+**/aura/**/*.xml
+**/lwc/**/*.css
+**/lwc/**/*.html
+**/lwc/**/*.json
+**/lwc/**/*.svg
+**/lwc/**/*.xml
+.sfdx
