@@ -30,5 +30,7 @@ $RECYCLE.BIN/
 
 # VS Code
 .vscode/
-lwc-recipes/
-data/
+
+# ignored
+force-app/main/default/profiles/
+.pmdCache

@@ -1,0 +1,31 @@
+<template>
+  <lightning-card title="Response" icon-name="custom:custom14">
+    <div slot="actions">
+      <lightning-button-group>
+        <lightning-button
+          label="Clear"
+          variant="brand"
+          value=""
+          onclick={handleClear}
+        ></lightning-button>
+      </lightning-button-group>
+    </div>
+    <lightning-layout multiple-rows="true">
+      <lightning-layout-item
+        size="12"
+        small-device-size="12"
+        medium-device-size="12"
+        large-device-size="12"
+      >
+        <div class="slds-m-around_medium">
+          <lightning-textarea
+            readonly
+            label={httpResponse.label}
+            value={httpResponseValue}
+            class="textarea-responseJson"
+          ></lightning-textarea>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
+</template>

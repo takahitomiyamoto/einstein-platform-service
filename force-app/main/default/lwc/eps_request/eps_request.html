@@ -1,0 +1,143 @@
+<template>
+  <lightning-card title="Request" icon-name="custom:custom14">
+    <div slot="actions">
+      <lightning-button-group>
+        <lightning-button
+          label="Send"
+          variant="brand"
+          value=""
+          onclick={handleSend}
+        ></lightning-button>
+      </lightning-button-group>
+    </div>
+    <lightning-layout multiple-rows="true">
+      <lightning-layout-item
+        size="12"
+        small-device-size="12"
+        medium-device-size="12"
+        large-device-size="12"
+      >
+        <div class="slds-m-around_medium">
+          <lightning-tabset>
+            <lightning-tab label="Method">
+              <div class="slds-m-around_medium">
+                <lightning-combobox
+                  label={httpMethod.label}
+                  value={httpMethodValue}
+                  options={httpMethodOptions}
+                  onchange={handleHttpMethodOptionChange}
+                  placeholder="-----"
+                ></lightning-combobox>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-combobox
+                  label={httpEndpoint.label}
+                  value={httpEndpointValue}
+                  options={httpEndpointOptions}
+                  onchange={handleHttpEndpointChange}
+                  placeholder="-----"
+                ></lightning-combobox>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpDatasetId.label}
+                  value={httpDatasetIdValue}
+                  onchange={handleHttpDatasetIdChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpModelId.label}
+                  value={httpModelIdValue}
+                  onchange={handleHttpModelIdChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+            </lightning-tab>
+            <lightning-tab label="Header">
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpAuthorization.label}
+                  value={httpAuthorizationValue}
+                  onchange={handleHttpAuthorizationChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-combobox
+                  label={httpCacheControl.label}
+                  value={httpCacheControlValue}
+                  options={httpCacheControlOptions}
+                  onchange={handleHttpCacheControlChange}
+                  placeholder="-----"
+                ></lightning-combobox>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-combobox
+                  label={httpContentType.label}
+                  value={httpContentTypeValue}
+                  options={httpContentTypeOptions}
+                  onchange={handleHttpContentTypeChange}
+                  placeholder="-----"
+                ></lightning-combobox>
+              </div>
+            </lightning-tab>
+            <lightning-tab label="Body">
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpData.label}
+                  value={httpDataValue}
+                  onchange={handleHttpDataChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-combobox
+                  label={httpLanguage.label}
+                  value={httpLanguageValue}
+                  options={httpLanguageOptions}
+                  onchange={handleHttpLanguageChange}
+                  placeholder="-----"
+                ></lightning-combobox>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpName.label}
+                  value={httpNameValue}
+                  onchange={handleHttpNameChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpPath.label}
+                  value={httpPathValue}
+                  onchange={handleHttpPathChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-combobox
+                  label={httpType.label}
+                  value={httpTypeValue}
+                  options={httpTypeOptions}
+                  onchange={handleHttpTypeChange}
+                  placeholder="-----"
+                ></lightning-combobox>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpDatasetId.label}
+                  value={httpDatasetIdBodyValue}
+                  onchange={handleHttpDatasetIdBodyChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+            </lightning-tab>
+          </lightning-tabset>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
+</template>
