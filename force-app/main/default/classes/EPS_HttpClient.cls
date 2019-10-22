@@ -20,10 +20,15 @@ public with sharing class EPS_HttpClient {
       request.setHeader('Content-Type', httpRequestObj.header.contentType);
       // request.setHeader('Accept', httpRequestObj.header.accept);
 
-      System.debug(LoggingLevel.DEBUG, 'body serialize: ' + System.JSON.serialize(httpRequestObj.body, true));
+      System.debug(
+        LoggingLevel.DEBUG,
+        'body serialize: ' + System.JSON.serialize(httpRequestObj.body, true)
+      );
 
       if (isPost(httpRequestObj.method) || isPut(httpRequestObj.method)) {
-        request.setBodyAsBlob(Blob.valueOf(System.JSON.serialize(httpRequestObj.body, true)));
+        request.setBodyAsBlob(
+          Blob.valueOf(System.JSON.serialize(httpRequestObj.body, true))
+        );
       }
 
       Http http = new Http();
