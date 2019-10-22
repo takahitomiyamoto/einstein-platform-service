@@ -6,15 +6,24 @@
             "c/eps_playground": [
                 "eps_playground/eps_playground.js"
             ],
+            "c/eps_pubsub": [
+                "eps_pubsub/eps_pubsub.js"
+            ],
             "c/eps_request": [
                 "eps_request/eps_request.js"
             ],
             "c/eps_response": [
                 "eps_response/eps_response.js"
-            ],
-            "c/eps_pubsub": [
-                "eps_pubsub/eps_pubsub.js"
             ]
         }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
     }
 }
