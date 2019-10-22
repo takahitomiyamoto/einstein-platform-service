@@ -23,7 +23,7 @@ export default class HelloWorld3 extends LightningElement {
   })
   getHttpResponse({error, data}) {
     if (error) {
-      console.log(error);
+      data = JSON.stringify(error);
     }
     if (data) {
       const pretty = JSON.stringify(JSON.parse(data), null, 2);

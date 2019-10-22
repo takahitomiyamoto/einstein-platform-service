@@ -18,11 +18,13 @@ public with sharing class EPS_HttpClient {
       request.setHeader('Authorization', httpRequestObj.header.authorization);
       request.setHeader('Cache-Control', httpRequestObj.header.cacheControl);
       request.setHeader('Content-Type', httpRequestObj.header.contentType);
+      // request.setHeader('Accept', httpRequestObj.header.accept);
 
-      // TODO: isPost
-      // request.setBody(System.JSON.serialize(httpRequestObj.body));
+      System.debug(LoggingLevel.DEBUG, 'body serialize: ' + System.JSON.serialize(httpRequestObj.body, true));
 
-      System.debug(LoggingLevel.DEBUG, 'request: ' + request);
+      if (isPost(httpRequestObj.method) || isPut(httpRequestObj.method)) {
+        request.setBodyAsBlob(Blob.valueOf(System.JSON.serialize(httpRequestObj.body, true)));
+      }
 
       Http http = new Http();
       HTTPResponse response = http.send(request);
@@ -34,34 +36,21 @@ public with sharing class EPS_HttpClient {
       System.debug(System.LoggingLevel.ERROR, e);
       throw new AuraHandledException(e.getMessage());
     }
+  }
 
-    //   HttpRequest request = new HttpRequest();
-    //   request.setHeader('Authorization', 'Bearer ' + predictionService.getBearerToken());
-    //   request.setHeader('Cache-Control', 'no-cache');
-    //   request.setTimeout(30000);
+  private static Boolean isPost(String method) {
+    if ('POST'.equals(method)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-    //   request.setMethod('GET');
-
-    //    if (isDelete()) {
-    //        request.setMethod('DELETE');
-    //    } else if (isPost() || isPut()) {
-    //        request.setHeader('Content-Type', Einstein_HttpBodyPart.GetContentType());
-    //        request.setBodyAsblob(body);
-    //        if (isPut()) {
-    //            request.setMethod('PUT');
-    //        } else {
-    //            request.setMethod('POST');
-    //        }
-    //    }
-
-    //    request.setEndpoint(url);
-
-    //     Http http = new Http();
-    //     HTTPResponse response = http.send(request);
-
-    //    predictionService.isExecuting(true);
-
-    //    updateResponseValues(response);
-    // }
+  private static Boolean isPut(String method) {
+    if ('PUT'.equals(method)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

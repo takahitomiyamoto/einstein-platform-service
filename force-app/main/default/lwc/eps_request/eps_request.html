@@ -79,7 +79,14 @@
                   value={httpContentTypeValue}
                   options={httpContentTypeOptions}
                   onchange={handleHttpContentTypeChange}
-                  placeholder="-----"
+                ></lightning-combobox>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-combobox
+                  label={httpAccept.label}
+                  value={httpAcceptValue}
+                  options={httpAcceptOptions}
+                  onchange={handleHttpAcceptChange}
                 ></lightning-combobox>
               </div>
             </lightning-tab>
@@ -134,10 +141,40 @@
                   placeholder=""
                 ></lightning-input>
               </div>
-              <!-- epochs -->
-              <!-- learningRate -->
-              <!-- modelId -->
-              <!-- trainParams -->
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpEpochs.label}
+                  value={httpEpochsValue}
+                  onchange={handleHttpEpochsChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpLearningRate.label}
+                  value={httpLearningRateValue}
+                  onchange={handleHttpLearningRateChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpModelId.label}
+                  value={httpModelIdBodyValue}
+                  onchange={handleHttpModelIdBodyChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-textarea
+                  name={httpTrainParams.label}
+                  label={httpTrainParams.label}
+                  value={httpTrainParamsValue}
+                  onchange={handleHttpTrainParamsChange}
+                  placeholder=""
+                  class=""
+                ></lightning-textarea>
+              </div>
             </lightning-tab>
           </lightning-tabset>
         </div>

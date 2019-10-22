@@ -24,3 +24,7 @@ APP_ID=04t0b000001jiGJAAY
 INSTANCE_URL=$(sfdx force:org:display -u einsteinplatformservice | grep 'Instance Url')
 echo "${INSTANCE_URL}/packagingSetupUI/ipLanding.app?apvId=${APP_ID}"
 ```
+
+## Acknowledgement
+
+- [salesforce-einstein-platform-apex](https://github.com/muenzpraeger/salesforce-einstein-platform-apex).

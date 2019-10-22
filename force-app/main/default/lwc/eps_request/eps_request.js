@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
 import {LightningElement, api, track, wire} from 'lwc';
 import {CurrentPageReference} from 'lightning/navigation';
+import {loadStyle} from 'lightning/platformResourceLoader';
+import eps_responseStyle from '@salesforce/resourceUrl/eps_responseStyle';
+
 import {fireEvent} from 'c/eps_pubsub';
 
 export default class EPS_Request extends LightningElement {
@@ -25,20 +28,32 @@ export default class EPS_Request extends LightningElement {
   httpContentType = {
     label: 'Content-Type'
   };
+  httpAccept = {
+    label: 'Accept'
+  };
   httpData = {
-    label: 'data'
+    label: 'Data'
   };
   httpLanguage = {
-    label: 'language'
+    label: 'Language'
   };
   httpName = {
-    label: 'name'
+    label: 'Name'
   };
   httpPath = {
-    label: 'path'
+    label: 'Path'
   };
   httpType = {
-    label: 'path'
+    label: 'Type'
+  };
+  httpEpochs = {
+    label: 'Epochs'
+  };
+  httpLearningRate = {
+    label: 'Learning Rate'
+  };
+  httpTrainParams = {
+    label: 'Train Params'
   };
 
   @api pubCustomEventName = '';
@@ -48,14 +63,19 @@ export default class EPS_Request extends LightningElement {
   @track httpDatasetIdValue = '';
   @track httpDatasetIdBodyValue = '';
   @track httpModelIdValue = '';
+  @track httpModelIdBodyValue = '';
   @track httpAuthorizationValue = 'Bearer ';
   @track httpCacheControlValue = '';
-  @track httpContentTypeValue = '';
+  @track httpContentTypeValue = 'application/json';
+  @track httpAcceptValue = 'application/json';
   @track httpDataValue = '';
   @track httpLanguageValue = '';
   @track httpNameValue = '';
   @track httpPathValue = '';
   @track httpTypeValue = '';
+  @track httpEpochsValue = '';
+  @track httpLearningRateValue = '';
+  @track httpTrainParamsValue = '';
 
   @wire(CurrentPageReference) pageRef;
 
@@ -140,9 +160,12 @@ export default class EPS_Request extends LightningElement {
   }
   get httpContentTypeOptions() {
     return [
-      {label: '-----', value: ''},
-      {label: 'application/json', value: 'application/json'}
+      {label: 'application/json', value: 'application/json'},
+      {label: 'multipart/form-data', value: 'multipart/form-data'}
     ];
+  }
+  get httpAcceptOptions() {
+    return [{label: 'application/json', value: 'application/json'}];
   }
   get httpLanguageOptions() {
     return [{label: '-----', value: ''}, {label: 'en_US', value: 'en_US'}];
@@ -150,9 +173,17 @@ export default class EPS_Request extends LightningElement {
   get httpTypeOptions() {
     return [
       {label: '-----', value: ''},
-      {label: 'intent', value: 'text-intent'},
-      {label: 'sentiment', value: 'text-sentiment'}
+      {label: 'text-intent', value: 'text-intent'},
+      {label: 'text-sentiment', value: 'text-sentiment'},
+      {label: 'image', value: 'image'},
+      {label: 'image-detection', value: 'image-detection'},
+      {label: 'image-multi-label', value: 'image-multi-label'}
     ];
+  }
+
+  connectedCallback() {
+    console.log('connectedCallback');
+    Promise.all([loadStyle(this, eps_responseStyle + '/style.css')]);
   }
 
   handleHttpMethodOptionChange(event) {
@@ -172,6 +203,9 @@ export default class EPS_Request extends LightningElement {
   handleHttpModelIdChange(event) {
     this.httpModelIdValue = event.target.value;
   }
+  handleHttpModelIdBodyChange(event) {
+    this.httpModelIdBodyValue = event.target.value;
+  }
   handleHttpAuthorizationChange(event) {
     this.httpAuthorizationValue = event.target.value;
   }
@@ -180,6 +214,9 @@ export default class EPS_Request extends LightningElement {
   }
   handleHttpContentTypeChange(event) {
     this.httpContentTypeValue = event.target.value;
+  }
+  handleHttpAcceptChange(event) {
+    this.httpAcceptValue = event.target.value;
   }
   handleHttpDataChange(event) {
     this.httpDataValue = event.target.value;
@@ -195,6 +232,15 @@ export default class EPS_Request extends LightningElement {
   }
   handleHttpTypeChange(event) {
     this.httpTypeValue = event.target.value;
+  }
+  handleHttpEpochsChange(event) {
+    this.httpEpochsValue = event.target.value;
+  }
+  handleHttpLearningRateChange(event) {
+    this.httpLearningRateValue = event.target.value;
+  }
+  handleHttpTrainParamsChange(event) {
+    this.httpTrainParamsValue = event.target.value;
   }
 
   handleSend() {
@@ -215,10 +261,44 @@ export default class EPS_Request extends LightningElement {
       header: {
         authorization: this.httpAuthorizationValue,
         cacheControl: this.httpCacheControlValue,
-        contentType: this.httpContentTypeValue
+        contentType: this.httpContentTypeValue,
+        accept: this.httpAcceptValue
       },
       body: {}
     };
+
+    if (this.httpDataValue) {
+      params.body.data = this.httpDataValue;
+    }
+    if (this.httpLanguageValue) {
+      params.body.language = this.httpLanguageValue;
+    }
+    if (this.httpNameValue) {
+      params.body.name = this.httpNameValue;
+    }
+    if (this.httpPathValue) {
+      params.body.path = this.httpPathValue;
+    }
+    if (this.httpTypeValue) {
+      params.body.type = this.httpTypeValue;
+    }
+    if (this.httpDatasetIdBodyValue) {
+      params.body.datasetId = this.httpDatasetIdBodyValue;
+    }
+    if (this.httpEpochsValue) {
+      params.body.epochs = this.httpEpochsValue;
+    }
+    if (this.httpLearningRateValue) {
+      params.body.learningRate = this.httpLearningRateValue;
+    }
+    if (this.httpModelIdBodyValue) {
+      params.body.modelId = this.httpModelIdBodyValue;
+    }
+    if (this.httpTrainParamsValue) {
+      params.body.trainParams = this.httpTrainParamsValue;
+    }
+
+    console.log(params);
     fireEvent(this.pageRef, this.pubCustomEventName, JSON.stringify(params));
     this.httpEndpointValue = httpEndpointValueCached;
   }

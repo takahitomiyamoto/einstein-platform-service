@@ -1,3 +1,6 @@
 .slds-textarea {
-  height: 400px !important;
+  height: 52rem !important;
+}
+textarea[name="Train Params"]{
+  height: 5rem !important;
 }

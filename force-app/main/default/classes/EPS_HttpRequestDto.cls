@@ -9,9 +9,18 @@ public without sharing class EPS_HttpRequestDto {
     public String authorization;
     public String cacheControl;
     public String contentType;
+    public String accept;
   }
   public class HttpRequestBody {
-    // public String method;
-    // public String endpoint;
+    public String data;
+    public String language;
+    public String name;
+    public String path;
+    public String type;
+    public Long datasetId;
+    public String epochs;
+    public String learningRate;
+    public String modelId;
+    public String trainParams;
   }
 }
