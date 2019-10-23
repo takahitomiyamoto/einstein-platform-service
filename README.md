@@ -28,6 +28,7 @@ echo "${INSTANCE_URL}/packagingSetupUI/ipLanding.app?apvId=${APP_ID}"
 ## Acknowledgement
 
 - [salesforce-einstein-platform-apex](https://github.com/muenzpraeger/salesforce-einstein-platform-apex).
+- [SFDC：Apex で『Content-Type: multipart/form-data』の API を実行](https://tyoshikawa1106.hatenablog.com/entry/2017/07/22/225204)
 
 # Appendix
 
