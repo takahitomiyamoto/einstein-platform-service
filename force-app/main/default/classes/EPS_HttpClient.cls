@@ -25,9 +25,13 @@ public with sharing class EPS_HttpClient {
       if (isPost || isPut) {
         String body = '';
         if (isMultipartBody) {
-          String boundary = '------------' + String.valueOf(DateTime.now().getTime());
+          String boundary =
+            '------------' + String.valueOf(DateTime.now().getTime());
 
-          request.setHeader('Content-Type', 'multipart/form-data; boundary=' + boundary);
+          request.setHeader(
+            'Content-Type',
+            'multipart/form-data; boundary=' + boundary
+          );
 
           body += setMultiparams(boundary, httpRequestObj.body);
           body += '--' + boundary + '--' + '\r\n';
@@ -74,7 +78,10 @@ public with sharing class EPS_HttpClient {
     }
   }
 
-  private static String setMultiparams(String boundary, EPS_HttpRequestDto.HttpRequestBody body) {
+  private static String setMultiparams(
+    String boundary,
+    EPS_HttpRequestDto.HttpRequestBody body
+  ) {
     Boolean hasData = body.data != null;
     Boolean hasLanguage = body.language != null;
     Boolean hasName = body.name != null;
@@ -95,14 +102,29 @@ public with sharing class EPS_HttpClient {
     params += setparam(boundary, hasType, 'type', body.type);
     params += setparam(boundary, hasDatasetId, 'datasetId', body.datasetId);
     params += setparam(boundary, hasEpochs, 'epochs', body.epochs);
-    params += setparam(boundary, hasLearningRate, 'learningRate', body.learningRate);
+    params += setparam(
+      boundary,
+      hasLearningRate,
+      'learningRate',
+      body.learningRate
+    );
     params += setparam(boundary, hasModelId, 'modelId', body.modelId);
-    params += setparam(boundary, hasTrainParams, 'trainParams', body.trainParams);
+    params += setparam(
+      boundary,
+      hasTrainParams,
+      'trainParams',
+      body.trainParams
+    );
 
     return params;
   }
 
-  private static String setparam(String boundary, Boolean has, String name, Object value) {
+  private static String setparam(
+    String boundary,
+    Boolean has,
+    String name,
+    Object value
+  ) {
     String param = '';
     if (has) {
       param += '--' + boundary + '\r\n' + 'Content-Disposition: form-data; ';
