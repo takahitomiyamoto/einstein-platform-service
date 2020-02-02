@@ -29,7 +29,7 @@
         <name>region3</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Einstein Platform Service</masterLabel>
+    <masterLabel>Einstein Platform Services</masterLabel>
     <template>
         <name>flexipage:appHomeTemplateHeaderTwoColumnsEqualWidth</name>
     </template>

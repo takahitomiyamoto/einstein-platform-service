@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
-        <application>Einstein_Platform_Service</application>
+        <application>Einstein_Platform_Services</application>
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
@@ -12,12 +12,12 @@
         <apexClass>EPS_HttpRequestDto</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <description>Einstein Platform Service</description>
+    <description>Einstein Platform Services</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Einstein Platform Service</label>
+    <label>Einstein Platform Services</label>
     <license>Salesforce</license>
     <tabSettings>
-        <tab>Einstein_Platform_Service</tab>
+        <tab>Einstein_Platform_Services</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

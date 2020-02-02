@@ -10,9 +10,9 @@
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
-    <label>Einstein Platform Service</label>
+    <label>Einstein Platform Services</label>
     <navType>Standard</navType>
-    <tabs>Einstein_Platform_Service</tabs>
+    <tabs>Einstein_Platform_Services</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Einstein_Platform_Service_UtilityBar</utilityBar>
+    <utilityBar>Einstein_Platform_Services_UtilityBar</utilityBar>
 </CustomApplication>
