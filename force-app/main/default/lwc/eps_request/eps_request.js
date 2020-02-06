@@ -168,7 +168,10 @@ export default class EPS_Request extends LightningElement {
     return [{label: 'application/json', value: 'application/json'}];
   }
   get httpLanguageOptions() {
-    return [{label: '-----', value: ''}, {label: 'en_US', value: 'en_US'}];
+    return [
+      {label: '-----', value: ''},
+      {label: 'en_US', value: 'en_US'}
+    ];
   }
   get httpTypeOptions() {
     return [
