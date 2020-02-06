@@ -3,10 +3,5 @@
   "edition": "Developer",
   "language": "en_US",
   "hasSampleData": true,
-  "features": [],
-  "settings": {
-    "lightningExperienceSettings": {
-      "enableS1DesktopEnabled": true
-    }
-  }
+  "features": []
 }
