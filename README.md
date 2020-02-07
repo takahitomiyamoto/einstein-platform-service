@@ -1,6 +1,6 @@
 # Einstein Platform Services App
 
-![my app](./asset/screenshot_app.png)
+![my app](./asset/app_image.png)
 
 ## install my app
 
