@@ -22,5 +22,8 @@ public without sharing class EPS_HttpRequestDto {
     public String learningRate;
     public String modelId;
     public String trainParams;
+    public String document;
+    public Long numResults;
+    public String sampleId;
   }
 }

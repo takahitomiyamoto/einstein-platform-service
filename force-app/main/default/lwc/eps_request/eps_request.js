@@ -55,6 +55,15 @@ export default class EPS_Request extends LightningElement {
   httpTrainParams = {
     label: 'Train Params'
   };
+  httpDocument = {
+    label: 'Document'
+  };
+  httpNumResults = {
+    label: 'Number of Probabilities'
+  };
+  httpSampleId = {
+    label: 'Sample ID'
+  };
 
   @api pubCustomEventName = '';
 
@@ -76,6 +85,9 @@ export default class EPS_Request extends LightningElement {
   @track httpEpochsValue = '';
   @track httpLearningRateValue = '';
   @track httpTrainParamsValue = '';
+  @track httpDocumentValue = '';
+  @track httpNumResultsValue = '';
+  @track httpSampleIdValue = '';
 
   @wire(CurrentPageReference) pageRef;
 
@@ -127,6 +139,14 @@ export default class EPS_Request extends LightningElement {
         value: 'https://api.einstein.ai/v2/language/retrain'
       },
       {
+        label: '[POST] /v2/language/sentiment',
+        value: 'https://api.einstein.ai/v2/language/sentiment'
+      },
+      {
+        label: '[POST] /v2/language/intent',
+        value: 'https://api.einstein.ai/v2/language/intent'
+      },
+      {
         label: '[PUT] /v2/language/datasets/<DATASET_ID>/upload',
         value: 'https://api.einstein.ai/v2/language/datasets/_DATASET_ID/upload'
       },
@@ -170,7 +190,8 @@ export default class EPS_Request extends LightningElement {
   get httpLanguageOptions() {
     return [
       {label: '-----', value: ''},
-      {label: 'en_US', value: 'en_US'}
+      {label: 'en_US', value: 'en_US'},
+      {label: 'ja', value: 'ja'}
     ];
   }
   get httpTypeOptions() {
@@ -245,6 +266,15 @@ export default class EPS_Request extends LightningElement {
   handleHttpTrainParamsChange(event) {
     this.httpTrainParamsValue = event.target.value;
   }
+  handleHttpDocumentChange(event) {
+    this.httpDocumentValue = event.target.value;
+  }
+  handleHttpNumResultsChange(event) {
+    this.httpNumResultsValue = event.target.value;
+  }
+  handleHttpSampleIdChange(event) {
+    this.httpSampleIdValue = event.target.value;
+  }
 
   handleSend() {
     console.log('handleSend');
@@ -299,6 +329,15 @@ export default class EPS_Request extends LightningElement {
     }
     if (this.httpTrainParamsValue) {
       params.body.trainParams = this.httpTrainParamsValue;
+    }
+    if (this.httpDocumentValue) {
+      params.body.document = this.httpDocumentValue;
+    }
+    if (this.httpNumResultsValue) {
+      params.body.numResults = this.httpNumResultsValue;
+    }
+    if (this.httpSampleIdValue) {
+      params.body.sampleId = this.httpSampleIdValue;
     }
 
     console.log(params);
