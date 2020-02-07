@@ -162,8 +162,13 @@
                   label={httpModelId.label}
                   value={httpModelIdBodyValue}
                   onchange={handleHttpModelIdBodyChange}
-                  placeholder=""
+                  placeholder="CommunitySentiment"
                 ></lightning-input>
+                <div class="slds-m-around_xx-small">
+                  <lightning-badge
+                    label="CommunitySentiment: Pre-Build - Community Sentiment Model"
+                  ></lightning-badge>
+                </div>
               </div>
               <div class="slds-m-around_medium">
                 <lightning-textarea
@@ -174,6 +179,32 @@
                   placeholder=""
                   class=""
                 ></lightning-textarea>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-textarea
+                  name={httpDocument.label}
+                  label={httpDocument.label}
+                  value={httpDocumentValue}
+                  onchange={handleHttpDocumentChange}
+                  placeholder=""
+                  class=""
+                ></lightning-textarea>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpNumResults.label}
+                  value={httpNumResultsValue}
+                  onchange={handleHttpNumResultsChange}
+                  placeholder=""
+                ></lightning-input>
+              </div>
+              <div class="slds-m-around_medium">
+                <lightning-input
+                  label={httpSampleId.label}
+                  value={httpSampleIdValue}
+                  onchange={handleHttpSampleIdChange}
+                  placeholder=""
+                ></lightning-input>
               </div>
             </lightning-tab>
           </lightning-tabset>

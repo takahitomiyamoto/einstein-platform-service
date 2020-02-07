@@ -92,6 +92,9 @@ public with sharing class EPS_HttpClient {
     Boolean hasLearningRate = body.learningRate != null;
     Boolean hasModelId = body.modelId != null;
     Boolean hasTrainParams = body.trainParams != null;
+    Boolean hasDocument = body.document != null;
+    Boolean hasNumResults = body.numResults != null;
+    Boolean hasSampleId = body.sampleId != null;
 
     String params = '';
 
@@ -115,6 +118,9 @@ public with sharing class EPS_HttpClient {
       'trainParams',
       body.trainParams
     );
+    params += setparam(boundary, hasDocument, 'document', body.document);
+    params += setparam(boundary, hasNumResults, 'numResults', body.numResults);
+    params += setparam(boundary, hasSampleId, 'sampleId', body.sampleId);
 
     return params;
   }
